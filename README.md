@@ -38,6 +38,8 @@ twoPhaseCustomSolvers/
 This code has been **tested and validated only with OpenFOAM v2012 (ESI)**.  
 If you wish to adapt it for a newer OpenFOAM release, you are free to do so under the GPLv3 license — however, compatibility and validation for other versions are not guaranteed and should be verified by the user.
 
+📥 **[Click here for the full OpenFOAM v2012 installation guide](INSTALL_v2012_OpenFOAM.md)**
+
 ---
 
 ## If you already have OpenFOAM v2012 set up
