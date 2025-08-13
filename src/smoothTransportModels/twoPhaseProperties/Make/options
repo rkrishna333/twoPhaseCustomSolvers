@@ -1,0 +1,10 @@
+EXE_INC = \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/smoothTransportModels/twoPhaseMixture/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/smoothTransportModels/interfaceProperties/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -L$(FOAM_USER_LIBBIN) \
+    -lsmoothtwoPhaseMixture \
+    -lsmoothinterfaceProperties

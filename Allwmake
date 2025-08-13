@@ -1,0 +1,27 @@
+#!/bin/bash
+
+cd "${0%/*}" || exit
+. ${WM_PROJECT_DIR:?}/wmake/scripts/AllwmakeParseArguments
+
+# ---------------------- Build Libraries ------------------------
+
+# mySchemes
+wmake $targetType src/mySchemes/myPhiScheme
+
+# smoothTransportModels (dependencies first)
+wmake $targetType src/smoothTransportModels/twoPhaseMixture
+wmake $targetType src/smoothTransportModels/interfaceProperties
+wmake $targetType src/smoothTransportModels/twoPhaseProperties
+wmake $targetType src/smoothTransportModels/incompressible
+wmake $targetType src/smoothTransportModels/immiscibleIncompressibleTwoPhaseMixture
+
+# depthAveragedTransportModels (dependencies first)
+wmake $targetType src/depthAveragedTransportModels/twoPhaseMixture
+wmake $targetType src/depthAveragedTransportModels/interfaceProperties
+wmake $targetType src/depthAveragedTransportModels/twoPhaseProperties
+wmake $targetType src/depthAveragedTransportModels/incompressible
+wmake $targetType src/depthAveragedTransportModels/immiscibleIncompressibleTwoPhaseMixture
+
+# ---------------------- Build Solvers --------------------------
+wmake $targetType applications/solvers/multiphase/smoothedVofInterFoam
+wmake $targetType applications/solvers/multiphase/depthAveragedInterFoam

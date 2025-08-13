@@ -1,0 +1,11 @@
+EXE_INC = \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/twoPhaseMixture/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/twoPhaseProperties/alphaContactAngle/alphaContactAngle \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/mySchemes/myPhiScheme/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -L$(FOAM_USER_LIBBIN) \
+    -lmytwoPhaseMixture \
+    -lmyPhiScheme 

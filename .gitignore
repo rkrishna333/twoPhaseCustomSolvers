@@ -1,0 +1,32 @@
+# Ignore compiled OpenFOAM binaries
+*.o
+*.dep
+*.so
+*.lnk
+*.exe
+
+# Ignore OpenFOAM auto-generated build folders
+*/platforms/
+*/Make/linux*
+*/Make/mac*
+
+# Ignore OpenFOAM simulation-generated files
+polyMesh/
+constant/polyMesh/
+constant/extendedFeatureEdgeMesh/
+processor*/               # parallel run folders
+postProcessing/
+log.*                     # log files like log.blockMesh, log.pimpleFoam
+*.log
+*.OpenFOAM
+*.foam
+*.dat
+*.vtk
+*.vtu
+*.stl
+*.obj
+
+# Ignore backup and temporary files
+*~
+*.swp
+

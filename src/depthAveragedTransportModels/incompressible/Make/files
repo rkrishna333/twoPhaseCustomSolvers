@@ -1,0 +1,6 @@
+transportModel/transportModel.C
+singlePhaseTransportModel/singlePhaseTransportModel.C
+
+incompressibleTwoPhaseMixture/incompressibleTwoPhaseMixture.C
+
+LIB = $(FOAM_USER_LIBBIN)/libmyincompressibleTransportModels

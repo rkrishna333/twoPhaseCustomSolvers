@@ -1,0 +1,51 @@
+#!/bin/bash
+
+cd "${0%/*}" || exit
+
+echo "Cleaning twoPhaseCustomSolvers build..."
+
+# -------- Clean src/mySchemes --------
+wclean src/mySchemes/myPhiScheme
+
+# -------- Clean smoothTransportModels --------
+wclean src/smoothTransportModels/twoPhaseMixture
+wclean src/smoothTransportModels/interfaceProperties
+wclean src/smoothTransportModels/twoPhaseProperties
+wclean src/smoothTransportModels/incompressible
+wclean src/smoothTransportModels/immiscibleIncompressibleTwoPhaseMixture
+
+# -------- Clean depthAveragedTransportModels --------
+wclean src/depthAveragedTransportModels/twoPhaseMixture
+wclean src/depthAveragedTransportModels/twoPhaseProperties
+wclean src/depthAveragedTransportModels/incompressible
+wclean src/depthAveragedTransportModels/interfaceProperties
+wclean src/depthAveragedTransportModels/geometricVoF
+wclean src/depthAveragedTransportModels/compressible
+wclean src/depthAveragedTransportModels/immiscibleIncompressibleTwoPhaseMixture
+
+# -------- Clean solvers --------
+wclean applications/solvers/multiphase/smoothedVofInterFoam
+wclean applications/solvers/multiphase/depthAveragedInterFoam
+
+# -------- Remove platform-specific Make dirs & lnInclude --------
+find . -type d -path "*/Make/linux64GccDPInt32Opt" -prune -exec rm -rf {} +
+find . -type d -name lnInclude -prune -exec rm -rf {} +
+
+# -------- Remove compiled binaries --------
+rm -f "$FOAM_USER_APPBIN/smoothedVofInterFoam" \
+      "$FOAM_USER_APPBIN/depthAveragedInterFoam"
+
+rm -f "$FOAM_USER_LIBBIN/libmyPhiScheme.so" \
+      "$FOAM_USER_LIBBIN/libsmoothtwoPhaseMixture.so" \
+      "$FOAM_USER_LIBBIN/libsmoothinterfaceProperties.so" \
+      "$FOAM_USER_LIBBIN/libsmoothtwoPhaseProperties.so" \
+      "$FOAM_USER_LIBBIN/libsmoothincompressibleTransportModels.so" \
+      "$FOAM_USER_LIBBIN/libsmoothimmiscibleIncompressibleTwoPhaseMixture.so" \
+      "$FOAM_USER_LIBBIN/libmytwoPhaseMixture.so" \
+      "$FOAM_USER_LIBBIN/libmytwoPhaseProperties.so" \
+      "$FOAM_USER_LIBBIN/libmyincompressibleTransportModels.so" \
+      "$FOAM_USER_LIBBIN/libmyinterfaceProperties.so" \
+      "$FOAM_USER_LIBBIN/libmyimmiscibleIncompressibleTwoPhaseMixture.so"
+
+echo "Clean complete."
+

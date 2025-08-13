@@ -1,0 +1,10 @@
+EXE_INC = \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/twoPhaseMixture/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/interfaceProperties/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -L$(FOAM_USER_LIBBIN) \
+    -lmytwoPhaseMixture \
+    -lmyinterfaceProperties
