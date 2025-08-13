@@ -1,0 +1,32 @@
+EXE_INC = \
+    -IdaVoF \
+    -I$(FOAM_SRC)/finiteVolume/lnInclude \
+    -I$(FOAM_SRC)/meshTools/lnInclude \
+    -I$(FOAM_SRC)/sampling/lnInclude \
+    -I$(FOAM_SRC)/dynamicFvMesh/lnInclude \
+    -I$(FOAM_SRC)/TurbulenceModels/turbulenceModels/lnInclude \
+    -I$(FOAM_SRC)/TurbulenceModels/incompressible/lnInclude \
+    -I$(FOAM_SRC)/TurbulenceModels/phaseIncompressible/lnInclude \
+    -I$(FOAM_SRC)/phaseSystemModels/twoPhaseInter/incompressibleInterPhaseTransportModel/lnInclude \
+    -I$(FOAM_SRC)/phaseSystemModels/twoPhaseInter/VoFphaseIncompressibleTurbulenceModels/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/incompressible/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/interfaceProperties/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/twoPhaseMixture/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/twoPhaseCustomSolvers/src/depthAveragedTransportModels/immiscibleIncompressibleTwoPhaseMixture/lnInclude
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lsampling \
+    -ldynamicFvMesh \
+    -lturbulenceModels \
+    -lincompressibleTurbulenceModels \
+    -lVoFphaseTurbulentTransportModels \
+    -lincompressibleInterPhaseTransportModels \
+    -L$(FOAM_USER_LIBBIN) \
+    -lmytwoPhaseMixture \
+    -lmyinterfaceProperties \
+    -lmytwoPhaseProperties \
+    -lmyincompressibleTransportModels \
+    -lmyimmiscibleIncompressibleTwoPhaseMixture
